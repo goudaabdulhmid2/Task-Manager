@@ -1,71 +1,86 @@
-# Task Manager - MEAN Stack Application
+# 📋 Task Manager - MEAN Stack Application
 
-A modern, full-stack task management application built with MongoDB, Express.js, Angular, and Node.js (MEAN Stack).
+A modern, full-stack task management application built with **MongoDB, Express.js, Angular, and Node.js** (MEAN Stack). Features a beautiful UI with real-time updates, notifications, and a professional confirmation modal.
 
-## 📹 Demo
+---
 
-Watch the application in action:
+## 🎯 Features
 
-https://github.com/user-attachments/assets/video.mp4
+✅ **Complete CRUD Operations**
+- Create, Read, Update, Delete tasks
+- Mark tasks as completed/incomplete
+- Inline task editing with validation
 
-![Demo Video](./screenShot/Recording%202026-01-16%20160624.mp4)
+✅ **Smart Filtering & Statistics**
+- Filter tasks by status (All, Active, Completed)
+- Real-time task statistics (Total, Active, Completed)
+- Empty state handling
 
-## 🚀 Features
+✅ **Modern UI/UX**
+- Beautiful gradient design (Purple → Violet)
+- Responsive layout (Mobile, Tablet, Desktop)
+- Smooth animations and transitions
+- Professional color scheme
 
-- ✅ Create, Read, Update, and Delete tasks
-- ✅ Mark tasks as completed/incomplete
-- ✅ Filter tasks by status (All, Active, Completed)
-- ✅ Real-time task statistics (Total, Active, Completed)
-- ✅ Modern, responsive UI with gradient design
-- ✅ Loading states and empty state handling
-- ✅ RESTful API with proper error handling
-- ✅ MongoDB persistence with Mongoose ODM
-- ✅ Docker containerization for MongoDB
-- ✅ Rate limiting and CORS protection
-- ✅ Modern toast notification system with 4 notification types
-- ✅ Beautiful confirmation modal for destructive actions
-- ✅ Inline task editing with validation
-- ✅ Keyboard support (Enter to add, ESC to close modals)
-- ✅ Click-outside modal closing and ESC key support
-- ✅ Smooth animations and transitions
+✅ **Notifications System**
+- Toast notifications (Success, Error, Warning, Info)
+- Auto-dismiss after 4-5 seconds
+- Manual close button
+- Progress bar animation
+
+✅ **Confirmation Modal**
+- Modern confirmation dialog for deletions
+- Click-outside to close
+- ESC key support
+- Color-coded danger buttons
+
+✅ **Keyboard Support**
+- Enter to add tasks
+- ESC to close modals
+
+✅ **Backend Features**
+- RESTful API with proper error handling
+- MongoDB persistence with Mongoose
+- Docker containerization
+- Rate limiting & CORS protection
+- Global error handling
+- Input validation
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Backend
-- **Node.js** (v22.18.0)
-- **Express.js** (v5.x) - Web framework
-- **MongoDB** (v6.0) - Database
-- **Mongoose** (v9.1.4) - MongoDB ODM
-- **Docker & Docker Compose** - Containerization
-- **express-rate-limit** - API rate limiting
-- **morgan** - HTTP request logger
-- **cors** - Cross-Origin Resource Sharing
-- **dotenv** - Environment variable management
+- **Node.js** v22.18.0
+- **Express.js** v5.x
+- **MongoDB** v6.0 (Docker)
+- **Mongoose** v9.1.4 ODM
+- **Docker & Docker Compose**
 
 ### Frontend
-- **Angular** (v21) - Frontend framework
-- **TypeScript** - Type-safe JavaScript
-- **RxJS** - Reactive programming
-- **HttpClient** - HTTP communication
-- **Standalone Components** - Modern Angular architecture
-- **CSS3** - Custom gradient styling
+- **Angular** v21
+- **TypeScript**
+- **RxJS** 7.x
+- **CSS3** (Custom gradients)
+
+---
 
 ## 📋 Prerequisites
 
-- Node.js (v18+ recommended)
+- Node.js v18+
 - Docker & Docker Compose
 - npm or yarn
-- Angular CLI (`npm install -g @angular/cli`)
+- Angular CLI
 
-## 🔧 Installation
-
-### 1. Clone the repository
 ```bash
-git clone <repository-url>
-cd Simple-MEAN-Stack-Project
+npm install -g @angular/cli
 ```
 
-### 2. Backend Setup
+---
+
+## 🚀 Quick Start
+
+### 1️⃣ Backend Setup
 
 ```bash
 cd server
@@ -73,49 +88,41 @@ cd server
 # Install dependencies
 npm install
 
-# Create .env file (already configured)
-# MONGO_URI=mongodb://root:example@localhost:27017/todo-manager?authSource=admin
-# NODE_ENV=development
-# PORT=3000
-# MONGO_INITDB_ROOT_USERNAME=root
-# MONGO_INITDB_ROOT_PASSWORD=example
-
-# Start MongoDB with Docker Compose
+# Start MongoDB with Docker
 docker-compose up -d
 
-# (Optional) Seed database with sample data
+# (Optional) Seed sample data
 node dev-data/import-dev-data.js --import
+
+# Start server
+npm run dev
 ```
 
-### 3. Frontend Setup
+Backend runs at: **http://localhost:3000**
+
+### 2️⃣ Frontend Setup
 
 ```bash
 cd ../client
 
 # Install dependencies
 npm install
-```
 
-## 🚀 Running the Application
-
-### Start Backend Server
-```bash
-cd server
-npm run dev
-```
-Backend will run at: `http://localhost:3000`
-
-### Start Frontend Server
-```bash
-cd client
+# Start Angular dev server
 ng serve
 ```
-Frontend will run at: `http://localhost:4200`
 
-### Access MongoDB Admin UI
-Mongo Express is available at: `http://localhost:8081`
-- Username: `admin`
-- Password: `pass`
+Frontend runs at: **http://localhost:4200**
+
+### 3️⃣ Access MongoDB Admin UI
+
+```
+URL: http://localhost:8081
+Username: admin
+Password: pass
+```
+
+---
 
 ## 📁 Project Structure
 
@@ -123,113 +130,76 @@ Mongo Express is available at: `http://localhost:8081`
 Simple-MEAN-Stack-Project/
 ├── server/
 │   ├── config/
-│   │   └── db.js                 # MongoDB connection
+│   │   └── db.js
 │   ├── controllers/
-│   │   ├── taskController.js     # Task CRUD operations
-│   │   ├── handlerFactory.js     # Generic controller factory
-│   │   └── errorController.js    # Global error handling
+│   │   ├── taskController.js
+│   │   ├── handlerFactory.js
+│   │   └── errorController.js
 │   ├── models/
-│   │   └── Task.js               # Mongoose Task schema
+│   │   └── Task.js
 │   ├── routes/
-│   │   └── taskRouter.js         # API routes
-│   ├── utlis/
-│   │   ├── ApiError.js           # Custom error class
-│   │   └── ApiFeatures.js        # Query features (filter, sort, paginate)
+│   │   └── taskRouter.js
+│   ├── utils/
+│   │   ├── ApiError.js
+│   │   └── ApiFeatures.js
 │   ├── dev-data/
-│   │   ├── tasks.json            # Sample task data
-│   │   └── import-dev-data.js    # Data seeding script
-│   ├── app.js                    # Express app configuration
-│   ├── server.js                 # Server entry point
-│   ├── docker-compose.yml        # Docker services
-│   ├── .env                      # Environment variables
+│   │   ├── tasks.json
+│   │   └── import-dev-data.js
+│   ├── app.js
+│   ├── server.js
+│   ├── docker-compose.yml
+│   ├── .env
 │   └── package.json
 │
 └── client/
     └── src/
         └── app/
             ├── services/
-            │   ├── task.service.ts              # HTTP service for API calls
-            │   ├── notification.service.ts      # Toast notification manager
-            │   └── confirmation.service.ts      # Modal confirmation service
+            │   ├── task.service.ts
+            │   ├── notification.service.ts
+            │   └── confirmation.service.ts
             ├── components/
-            │   ├── notification.component.ts    # Toast UI component
-            │   └── confirmation-modal.component.ts  # Confirmation modal component
-            ├── app.ts                           # Root component logic
-            ├── app.html                         # Task Manager template
-            ├── app.css                          # Modern gradient styling
-            └── app.config.ts                    # Angular configuration
-
+            │   ├── notification.component.ts
+            │   └── confirmation-modal.component.ts
+            ├── app.ts
+            ├── app.html
+            ├── app.css
+            └── app.config.ts
 ```
 
-## 🔔 Notification System
+---
 
-The application features a modern toast notification system that displays feedback for user actions:
+## 🔔 Toast Notifications
 
-### Notification Service (`notification.service.ts`)
-- Manages notification state with RxJS BehaviorSubject
-- Provides methods: `success()`, `error()`, `warning()`, `info()`
-- Auto-dismisses notifications after 4-5 seconds
-- Prevents duplicate notifications
-- Singleton service (providedIn: 'root')
+The app displays beautiful toast notifications for all user actions:
 
-### Notification Component (`notification.component.ts`)
-- Displays toast messages in a fixed container (top-right)
-- 4 notification types with color-coded gradients:
-  - **Success** (Green #10b981): Task added/updated/deleted successfully
-  - **Error** (Red #ef4444): Operation failed
-  - **Warning** (Orange #f59e0b): Invalid input or validation issues
-  - **Info** (Blue #3b82f6): Informational messages
-- Features:
-  - Smooth slide-in animation
-  - Progress bar showing time until auto-dismiss
-  - Close button for manual dismissal
-  - Responsive design with mobile optimization
-  - Backdrop blur effect for visual depth
-
-### Usage Example
 ```typescript
-// In any component
-constructor(private notificationService: NotificationService) {}
-
-// Display notifications
+// Success notification (Green)
 this.notificationService.success('Task created successfully!');
+
+// Error notification (Red)
 this.notificationService.error('Failed to delete task');
-this.notificationService.warning('Task title must be at least 3 characters');
+
+// Warning notification (Orange)
+this.notificationService.warning('Task title must be 3+ characters');
+
+// Info notification (Blue)
 this.notificationService.info('No tasks to display');
 ```
 
+**Features:**
+- Auto-dismisses after 4-5 seconds
+- Manual close button
+- Progress bar animation
+- Smooth slide-in animation
+
+---
+
 ## ✅ Confirmation Modal
 
-A modern, user-friendly confirmation modal replaces browser dialogs for destructive actions:
+Modern confirmation dialog for destructive actions:
 
-### Confirmation Service (`confirmation.service.ts`)
-- Centralized state management for modal visibility and content
-- Promise-based API for clean async handling
-- Configurable modal content (title, message, button labels)
-- Danger flag for red delete buttons
-
-### Confirmation Modal Component (`confirmation-modal.component.ts`)
-- Beautiful card-style modal with rounded corners
-- Features:
-  - Soft background overlay with backdrop blur (opacity 0.5)
-  - Smooth slide-up animation with fade-in backdrop
-  - Title and message text sections
-  - Two action buttons (Cancel/Confirm)
-  - Color-coded buttons:
-    - Primary button: Purple/violet gradient (#667eea → #764ba2)
-    - Danger button: Red gradient (#ef4444 → #dc2626) for destructive actions
-  - Keyboard support:
-    - ESC key closes the modal
-  - Click-outside to close
-  - Mobile responsive with full-width buttons on small screens (<480px)
-  - Smooth hover and focus state transitions
-
-### Usage Example
 ```typescript
-// In any component
-constructor(private confirmationService: ConfirmationService) {}
-
-// Show confirmation modal
 this.confirmationService.confirm({
   title: 'Delete Task?',
   message: 'This action cannot be undone. Are you sure?',
@@ -242,6 +212,16 @@ this.confirmationService.confirm({
   }
 });
 ```
+
+**Features:**
+- Soft background overlay with blur effect
+- Smooth animations
+- Click-outside to close
+- ESC key support
+- Color-coded buttons (Red for dangerous actions)
+- Mobile responsive
+
+---
 
 ## 🌐 API Endpoints
 
