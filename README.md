@@ -2,7 +2,7 @@
 
 A modern, full-stack task management application built with MongoDB, Express.js, Angular, and Node.js (MEAN Stack).
 
-## � Demo
+## 📹 Demo
 
 Watch the application in action:
 
@@ -10,7 +10,7 @@ https://github.com/user-attachments/assets/video.mp4
 
 ![Demo Video](./screenShot/Recording%202026-01-16%20160624.mp4)
 
-## �🚀 Features
+## 🚀 Features
 
 - ✅ Create, Read, Update, and Delete tasks
 - ✅ Mark tasks as completed/incomplete
@@ -272,7 +272,7 @@ curl -X PUT http://localhost:3000/api/v1/tasks/:id \
 curl -X DELETE http://localhost:3000/api/v1/tasks/:id
 ```
 
-## � Screenshots
+## 📸 Screenshots
 
 The application features a modern, responsive UI with beautiful gradients and smooth animations:
 
@@ -288,7 +288,7 @@ The application features a modern, responsive UI with beautiful gradients and sm
 | Delete Confirmation | ![Confirmation Modal](./screenShot/Screenshot%202026-01-16%20155510.png) |
 | Mobile Responsive | ![Mobile View](./screenShot/Screenshot%202026-01-16%20160456.png) |
 
-## �🔒 Environment Variables
+## 🔒 Environment Variables
 
 ### Server (.env)
 ```env
@@ -444,5 +444,6 @@ This project is licensed under the MIT License.
 ---
 
 Made with ❤️ using MEAN Stack
-#   T a s k - M a n a g e r  
+#   T a s k - M a n a g e r 
+ 
  
