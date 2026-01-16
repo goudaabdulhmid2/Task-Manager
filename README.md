@@ -2,6 +2,8 @@
 
 A modern, full-stack task management application built with **MongoDB, Express.js, Angular, and Node.js** (MEAN Stack). Features a beautiful UI with real-time updates, notifications, and a professional confirmation modal.
 
+![Live Demo](./screenShot/Recording2026-01-16160624-ezgif.com-video-to-gif-converter.gif)
+
 ---
 
 ## 🎯 Features
@@ -114,15 +116,6 @@ ng serve
 
 Frontend runs at: **http://localhost:4200**
 
-### 3️⃣ Access MongoDB Admin UI
-
-```
-URL: http://localhost:8081
-Username: admin
-Password: pass
-```
-
----
 
 ## 📁 Project Structure
 
@@ -167,61 +160,6 @@ Simple-MEAN-Stack-Project/
             └── app.config.ts
 ```
 
----
-
-## 🔔 Toast Notifications
-
-The app displays beautiful toast notifications for all user actions:
-
-```typescript
-// Success notification (Green)
-this.notificationService.success('Task created successfully!');
-
-// Error notification (Red)
-this.notificationService.error('Failed to delete task');
-
-// Warning notification (Orange)
-this.notificationService.warning('Task title must be 3+ characters');
-
-// Info notification (Blue)
-this.notificationService.info('No tasks to display');
-```
-
-**Features:**
-- Auto-dismisses after 4-5 seconds
-- Manual close button
-- Progress bar animation
-- Smooth slide-in animation
-
----
-
-## ✅ Confirmation Modal
-
-Modern confirmation dialog for destructive actions:
-
-```typescript
-this.confirmationService.confirm({
-  title: 'Delete Task?',
-  message: 'This action cannot be undone. Are you sure?',
-  confirmText: 'Delete',
-  cancelText: 'Cancel',
-  isDangerous: true
-}).then((confirmed) => {
-  if (confirmed) {
-    // Handle deletion
-  }
-});
-```
-
-**Features:**
-- Soft background overlay with blur effect
-- Smooth animations
-- Click-outside to close
-- ESC key support
-- Color-coded buttons (Red for dangerous actions)
-- Mobile responsive
-
----
 
 ## 🌐 API Endpoints
 
@@ -259,14 +197,14 @@ The application features a modern, responsive UI with beautiful gradients and sm
 | Feature | Screenshot |
 |---------|-----------|
 | Task Manager Main View | ![Main View](./screenShot/Screenshot%202026-01-16%20155203.png) |
-| Task List Display | ![Task List](./screenShot/Screenshot%202026-01-16%20155319.png) |
-| Add Task Input | ![Add Task](./screenShot/Screenshot%202026-01-16%20155334.png) |
-| Filter Buttons | ![Filters](./screenShot/Screenshot%202026-01-16%20155400.png) |
-| Task Statistics | ![Statistics](./screenShot/Screenshot%202026-01-16%20155416.png) |
-| Edit Mode | ![Edit Task](./screenShot/Screenshot%202026-01-16%20155445.png) |
-| Notifications | ![Notifications](./screenShot/Screenshot%202026-01-16%20155458.png) |
-| Delete Confirmation | ![Confirmation Modal](./screenShot/Screenshot%202026-01-16%20155510.png) |
-| Mobile Responsive | ![Mobile View](./screenShot/Screenshot%202026-01-16%20160456.png) |
+| After Add Tasks| ![Task List](./screenShot/Screenshot%202026-01-16%20155319.png) |
+| Before Edit | ![Add Task](./screenShot/Screenshot%202026-01-16%20155334.png) |
+| Edit | ![Filters](./screenShot/Screenshot%202026-01-16%20155400.png) |
+| After Edit | ![Statistics](./screenShot/Screenshot%202026-01-16%20155416.png) |
+| All | ![Edit Task](./screenShot/Screenshot%202026-01-16%20155445.png) |
+| Active | ![Notifications](./screenShot/Screenshot%202026-01-16%20155458.png) |
+| Completed | ![Confirmation Modal](./screenShot/Screenshot%202026-01-16%20155510.png) |
+| Delete Confirmation | ![Mobile View](./screenShot/Screenshot%202026-01-16%20160456.png) |
 
 ## 🔒 Environment Variables
 
@@ -279,40 +217,6 @@ MONGO_INITDB_ROOT_USERNAME=root
 MONGO_INITDB_ROOT_PASSWORD=example
 ```
 
-## 🎨 Features in Detail
-
-### Backend Features
-- **Factory Pattern**: Reusable controller methods for CRUD operations
-- **Error Handling**: Centralized error handling with custom ApiError class
-- **Validation**: Mongoose schema validation with custom error messages
-- **Rate Limiting**: 100 requests per 15 minutes per IP
-- **CORS**: Configured for localhost:4200 and localhost:3000
-- **Logging**: Morgan HTTP request logging in development mode
-- **Query Features**: Filter, sort, pagination, field limiting, and keyword search
-
-### Frontend Features
-- **Reactive State Management**: RxJS BehaviorSubjects for real-time updates
-- **Optimistic Updates**: Immediate UI feedback with server sync
-- **Error Handling**: Graceful handling of 404 and server errors
-- **Loading States**: Spinner during API calls
-- **Empty States**: User-friendly messages when no tasks exist
-- **Keyboard Support**: Press Enter to add tasks, ESC to close modals
-- **Responsive Design**: Mobile-first approach with breakpoints
-- **Modern UI**: Purple/indigo gradient theme with smooth animations
-- **Toast Notifications**: 4 notification types (success, error, warning, info) with auto-dismiss
-  - Success: Green gradient with checkmark icon
-  - Error: Red gradient with error icon
-  - Warning: Orange gradient with warning icon
-  - Info: Blue gradient with info icon
-  - Features: Auto-dismiss after 4-5 seconds, progress bar animation, close button
-- **Confirmation Modal**: Beautiful modal for destructive actions
-  - Soft background overlay with backdrop blur
-  - Smooth slide-up animation
-  - Color-coded action buttons (red for dangerous operations)
-  - Click-outside to close
-  - ESC key support
-  - Mobile responsive with full-width buttons on small screens
-- **Inline Editing**: Edit task titles with validation feedback
 
 ## 🧪 Seeding Sample Data
 
@@ -358,45 +262,6 @@ cd client
 ng serve  # Runs with live reload
 ```
 
-### Code Quality
-- TypeScript strict mode enabled
-- ESLint configuration available
-- Mongoose schema validation
-- Express error handling middleware
-
-## 📝 Task Schema
-
-```javascript
-{
-  title: {
-    type: String,
-    required: true,
-    minlength: 3,
-    trim: true
-  },
-  completed: {
-    type: Boolean,
-    default: false
-  },
-  createdAt: Date,    // Auto-generated
-  updatedAt: Date     // Auto-generated
-}
-```
-
-## 🎯 Future Enhancements
-
-- [ ] User authentication (JWT)
-- [ ] Task categories/tags
-- [ ] Due dates and reminders
-- [ ] Task priority levels
-- [ ] Search and advanced filtering
-- [x] Task editing (inline) ✅ Completed
-- [ ] Drag-and-drop reordering
-- [ ] Dark mode toggle
-- [ ] Export tasks (JSON, CSV)
-- [ ] Unit and integration tests
-- [x] Modern toast notifications ✅ Completed
-- [x] Confirmation modal for delete actions ✅ Completed
 
 ## 🤝 Contributing
 
@@ -406,22 +271,6 @@ ng serve  # Runs with live reload
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
 
-This project is licensed under the MIT License.
 
-## 👨‍💻 Author
 
-**Hamid**
-
-## 🙏 Acknowledgments
-
-- Angular team for the amazing framework
-- MongoDB for the flexible database
-- Express.js community
-- Docker for containerization
-
----
-
-Made with ❤️ using MEAN Stack
-#
