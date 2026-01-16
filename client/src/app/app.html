@@ -1,0 +1,100 @@
+<app-notification></app-notification>
+<app-confirmation-modal></app-confirmation-modal>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>{{ title }}</h1>
+    </div>
+
+    <div class="card-body">
+      <!-- Input Section -->
+      <div class="input-group">
+        <input type="text" class="input-field" placeholder="Add a new task..." [(ngModel)]="newTaskTitle"
+          (keypress)="onKeyPress($event)" [disabled]="loading" />
+        <button class="btn btn-primary" (click)="addTask()" [disabled]="!newTaskTitle.trim() || loading">
+          {{ loading ? 'Adding...' : 'Add Task' }}
+        </button>
+      </div>
+
+      <!-- Loading Spinner -->
+      <div *ngIf="loading" class="loading">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- Stats Section -->
+      <div *ngIf="!loading && tasks.length > 0" class="stats">
+        <div class="stat-item">
+          <div class="stat-number">{{ tasks.length }}</div>
+          <div class="stat-label">Total Tasks</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{{ getActiveCount() }}</div>
+          <div class="stat-label">Active</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{{ getCompletedCount() }}</div>
+          <div class="stat-label">Completed</div>
+        </div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div *ngIf="!loading && tasks.length > 0" class="filter-buttons">
+        <button class="filter-btn" [class.active]="filter === 'all'" (click)="filter = 'all'">
+          All
+        </button>
+        <button class="filter-btn" [class.active]="filter === 'active'" (click)="filter = 'active'">
+          Active
+        </button>
+        <button class="filter-btn" [class.active]="filter === 'completed'" (click)="filter = 'completed'">
+          Completed
+        </button>
+      </div>
+
+      <!-- Tasks List -->
+      <div *ngIf="!loading">
+        <div *ngIf="getFilteredTasks().length > 0; else emptyState">
+          <div class="tasks-list">
+            <div *ngFor="let task of getFilteredTasks()" class="task-item" [class.completed]="task.completed"
+              [class.editing]="editingId === task._id">
+              <input type="checkbox" class="task-checkbox" [checked]="task.completed" (change)="toggleTask(task)"
+                [disabled]="editingId === task._id" />
+
+              <!-- Display Mode -->
+              <span *ngIf="editingId !== task._id" class="task-title">{{ task.title }}</span>
+
+              <!-- Edit Mode -->
+              <input *ngIf="editingId === task._id" type="text" class="task-edit-input" [(ngModel)]="editingTitle"
+                placeholder="Edit task..." />
+
+              <div class="task-actions">
+                <!-- Edit/Save/Cancel Buttons -->
+                <button *ngIf="editingId !== task._id" class="btn-edit" (click)="startEdit(task)" title="Edit task">
+                  ✎
+                </button>
+                <button *ngIf="editingId === task._id" class="btn-save" (click)="saveEdit(task)" title="Save task">
+                  ✓
+                </button>
+                <button *ngIf="editingId === task._id" class="btn-cancel" (click)="cancelEdit()" title="Cancel">
+                  ✕
+                </button>
+
+                <!-- Delete Button -->
+                <button *ngIf="editingId !== task._id" class="btn-delete" (click)="deleteTask(task._id)"
+                  title="Delete task">
+                  ✕
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #emptyState>
+          <div class="empty-state">
+            <div class="empty-icon">📋</div>
+            <p>No {{ filter === 'all' ? '' : filter }} tasks yet. Add your first task!</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

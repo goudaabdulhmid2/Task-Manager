@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Learn MongoDB",
+        "completed": false
+    },
+    {
+        "title": "Build a MEAN Stack App",
+        "completed": false
+    },
+    {
+        "title": "Deploy to Production",
+        "completed": false
+    },
+    {
+        "title": "Write Unit Tests",
+        "completed": true
+    },
+    {
+        "title": "Review Pull Requests",
+        "completed": false
+    }
+]
