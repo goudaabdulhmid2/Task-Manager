@@ -424,6 +424,4 @@ This project is licensed under the MIT License.
 ---
 
 Made with ❤️ using MEAN Stack
-#   T a s k - M a n a g e r 
- 
- 
+#
